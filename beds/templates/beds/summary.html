@@ -1,0 +1,72 @@
+{% extends 'beds/index.html' %}
+
+{% block content %}
+<div class="container mt-4 pt-4 pb-4">
+  <div class="card-deck">
+    <div class="card bg-primary">
+      <div class="card-body text-center">
+        <p class="card-text">NORMAL BEDS</p>
+        <h2 class="text-white">134</h2>
+      </div>
+    </div>
+    <div class="card bg-warning">
+      <div class="card-body text-center">
+        <p class="card-text">COVID BEDS</p>
+        <h2 class="text-white">134</h2>
+      </div>
+    </div>
+    <div class="card bg-success">
+      <div class="card-body text-center">
+        <p class="card-text">ICUs</p>
+        <h2 class="text-white">134</h2>
+      </div>
+    </div>
+    <div class="card bg-danger">
+      <div class="card-body text-center">
+        <p class="card-text">VENTILATOR</p>
+        <h2 class="text-white">134</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <h3 class="mb-3">Hospital Information</h3>
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>NAME</th>
+        <th>LOCATION</th>
+        <th>DISTRICT</th>
+        <th>NORMAL BEDS</th>
+        <th>COVID BEDS</th>
+        <th>ICU</th>
+        <th>VENTILATOR</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+{% endblock %}
